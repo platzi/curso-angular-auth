@@ -4,7 +4,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { SharedModule } from '@shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
+import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -16,10 +16,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    LayoutRoutingModule,
     OverlayModule,
     FontAwesomeModule,
     SharedModule
   ]
 })
-export class AppModule { }
+export class LayoutModule { }
