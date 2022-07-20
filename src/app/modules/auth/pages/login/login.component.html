@@ -1,0 +1,22 @@
+<div class="w-screen h-screen bg-white sm:bg-gray-50 relative">
+  <app-background></app-background>
+  <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-4/12 m-auto">
+    <app-header></app-header>
+    <div class="bg-white rounded shadow-none sm:shadow-lg py-4 px-4 md:px-9">
+      <div class="mb-4">
+        <app-login-form></app-login-form>
+      </div>
+      <hr class="my-4 border-b-1 border-r-gray-300" />
+      <div
+        class="flex justify-center items-center space-x-0 space-y-2 md:space-x-2 md:space-y-0 flex-col md:flex-row"
+      >
+        <a routerLink="/forgot-password" class="text-blue-600">Can't log in?</a>
+        <span class="text-gray-500 hidden md:block">•</span>
+        <a routerLink="/register" class="text-blue-600"
+          >Sign up for an account</a
+        >
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
