@@ -66,8 +66,6 @@
   [cdkConnectedOverlayOrigin]="menuOverlay"
   [cdkConnectedOverlayOpen]="isOpenOverlayAvatar"
   (overlayOutsideClick)="isOpenOverlayAvatar = !isOpenOverlayAvatar"
-  (detach)="isOpenOverlayAvatar = false"
-  (backdropClick)="isOpenOverlayAvatar = false"
 >
   <div
     class="z-50 my-4 w-60 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
@@ -131,8 +129,6 @@
   [cdkConnectedOverlayOrigin]="boardsOverlay"
   [cdkConnectedOverlayOpen]="isOpenOverlayBoards"
   (overlayOutsideClick)="isOpenOverlayBoards = !isOpenOverlayBoards"
-  (detach)="isOpenOverlayBoards = false"
-  (backdropClick)="isOpenOverlayBoards = false"
 >
   <div
     class="z-50 my-4 w-60 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
