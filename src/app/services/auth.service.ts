@@ -28,4 +28,8 @@ export class AuthService {
       password
     });
   }
+
+  isAvailable(email: string) {
+    return this.http.post<{isAvailable: boolean}>(`${this.apiUrl}/api/v1/auth/is-available`, {email});
+  }
 }
