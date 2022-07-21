@@ -18,6 +18,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('../boards/boards.module').then((m) => m.BoardsModule),
       },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('../profile/profile.module').then((m) => m.ProfileModule),
+      },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('../users/users.module').then((m) => m.UsersModule),
+      },
     ],
   },
 ];
