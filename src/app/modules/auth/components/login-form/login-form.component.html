@@ -27,6 +27,7 @@
         This field should be a email
       </p>
     </div>
+
   </div>
   <div>
     <div class="relative">
@@ -54,6 +55,13 @@
         This field should be greater than 6 characters
       </p>
     </div>
+  </div>
+  <div *ngIf="status === 'failed'">
+    <p
+      class="font-medium text-red-500 text-xs mt-1 ml-1"
+    >
+      Credentials are invalid
+    </p>
   </div>
   <div>
     <app-btn
