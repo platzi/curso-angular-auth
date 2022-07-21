@@ -16,7 +16,7 @@ export class RecoveryFormComponent {
     },
     {
       validators: [
-        CustomValidators.MatchValidator('password', 'confirmPassword'),
+        CustomValidators.MatchValidator('newPassword', 'confirmPassword'),
       ],
     }
   );
@@ -27,5 +27,11 @@ export class RecoveryFormComponent {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  recovery() {}
+  recovery() {
+    if (this.form.valid) {
+      // Todo
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
 }
