@@ -17,29 +17,16 @@ export class LoginFormComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
   showPassword = false;
-  statusCheckEmail: string = 'init';
-  statusLogin: string = 'init';
-  userExists = false;
+  status: string = 'init';
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
 
-  isAvailable() {
-    if (this.form.controls.email.valid) {
-      this.statusCheckEmail = 'loading';
-      const email = this.form.controls.email.value;
-      // TODO
-    } else {
-      this.form.controls.email.markAsTouched();
-    }
-
-  }
-
   doLogin() {
     if (this.form.valid) {
-      this.statusLogin = 'loading';
+      this.status = 'loading';
       const { email, password } = this.form.getRawValue();
       // TODO
     } else {

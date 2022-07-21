@@ -53,11 +53,17 @@
         [type]="showPassword ? 'text' : 'password'"
         class="w-full rounded bg-gray-100 border-gray-300 border-2"
       />
-      <button type="button" class="p-2 absolute right-2" (click)="showPassword = !showPassword">
+      <button
+        type="button"
+        class="p-2 absolute right-2"
+        (click)="showPassword = !showPassword"
+      >
         <fa-icon [icon]="showPassword ? faEye : faEyeSlash"></fa-icon>
       </button>
     </div>
-    <div *ngIf="form.controls.password.touched && form.controls.password.invalid">
+    <div
+      *ngIf="form.controls.password.touched && form.controls.password.invalid"
+    >
       <p
         *ngIf="form.controls.password.hasError('required')"
         class="font-medium text-red-500 text-xs mt-1 ml-1"
@@ -81,7 +87,12 @@
         class="w-full rounded bg-gray-100 border-gray-300 border-2"
       />
     </div>
-    <div *ngIf="form.controls.confirmPassword.touched && form.controls.confirmPassword.invalid">
+    <div
+      *ngIf="
+        form.controls.confirmPassword.touched &&
+        form.controls.confirmPassword.invalid
+      "
+    >
       <p
         *ngIf="form.controls.confirmPassword.hasError('required')"
         class="font-medium text-red-500 text-xs mt-1 ml-1"
@@ -96,11 +107,16 @@
       </p>
     </div>
   </div>
+  <div *ngIf="form.controls.confirmPassword.touched">
+    <p
+      *ngIf="form.hasError('mismatch')"
+      class="font-medium text-red-500 text-xs mt-1 ml-1"
+    >
+      The password are not the same
+    </p>
+  </div>
   <div>
-    <app-btn
-      typeBtn="submit"
-      color="success"
-      [loading]="status === 'loading'"
+    <app-btn typeBtn="submit" color="success" [loading]="status === 'loading'"
       >Register</app-btn
     >
   </div>

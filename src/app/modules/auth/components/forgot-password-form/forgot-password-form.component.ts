@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-
-
 @Component({
   selector: 'app-forgot-password-form',
   templateUrl: './forgot-password-form.component.html'
 })
-export class ForgotPasswordFormComponent implements OnInit {
+export class ForgotPasswordFormComponent {
 
   form = this.formBuilder.nonNullable.group({
     email: ['', [Validators.email, Validators.required]],
@@ -17,9 +15,6 @@ export class ForgotPasswordFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   sendLink() {
     if (this.form.valid) {

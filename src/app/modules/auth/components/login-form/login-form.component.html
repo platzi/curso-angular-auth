@@ -28,7 +28,7 @@
       </p>
     </div>
   </div>
-  <div *ngIf="userExists">
+  <div>
     <div class="relative">
       <input
         formControlName="password"
@@ -57,17 +57,9 @@
   </div>
   <div>
     <app-btn
-      [loading]="statusCheckEmail === 'loading'"
-      color="success"
-      *ngIf="!userExists"
-      (click)="isAvailable()"
-      >Continue</app-btn
-    >
-    <app-btn
-      *ngIf="userExists"
       typeBtn="submit"
       color="success"
-      [loading]="statusLogin === 'loading'"
+      [loading]="status === 'loading'"
       >Login</app-btn
     >
   </div>
