@@ -40,4 +40,12 @@ export class AuthService {
   isAvailable(email: string) {
     return this.http.post<{isAvailable: boolean}>(`${this.apiUrl}/api/v1/auth/is-available`, {email});
   }
+
+  recovery(email: string) {
+    return this.http.post(`${this.apiUrl}/api/v1/auth/recovery`, { email });
+  }
+
+  changePassword(token: string, newPassword: string) {
+    return this.http.post(`${this.apiUrl}/api/v1/auth/change-password`, { token, newPassword });
+  }
 }
