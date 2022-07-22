@@ -1,6 +1,7 @@
 <div class="w-full h-full grow bg-white-600 p-6">
   <div class="container mx-auto">
     <h1 class="text-xl text-gray-700 font-semibold italic mb-5">Hola, {{ user?.name }}</h1>
+    <button (click)="getUsers()">refresh</button>
     <table
       class="w-full text-sm text-left text-gray-500"
       cdk-table
