@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthService } from '@services/auth.service';
+import { TokenService } from '@services/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,12 +27,17 @@ export class NavbarComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService,
   ) {}
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  isValidToken() {
+    console.log(this.tokenService.isValidToken());
   }
 
 }
