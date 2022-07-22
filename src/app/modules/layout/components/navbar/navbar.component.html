@@ -52,7 +52,7 @@
         >
           <img
             class="w-8 h-8 rounded-full"
-            src="https://api.lorem.space/image/face?w=400&h=400"
+            [src]="user?.avatar"
             alt="user photo"
           />
         </button>
@@ -82,12 +82,12 @@
     <div class="py-3 px-4 flex items-center space-x-4">
       <img
         class="w-10 h-10 rounded-full"
-        src="https://api.lorem.space/image/face?w=400&h=400"
+        [src]="user?.avatar"
         alt=""
       />
       <div class="space-y-1">
-        <div>Jese Leos</div>
-        <div class="text-sm text-gray-500">nico@gmail.com</div>
+        <div>{{ user?.name }}</div>
+        <div class="text-sm text-gray-500">{{ user?.email }}</div>
       </div>
     </div>
     <ul class="py-1">
