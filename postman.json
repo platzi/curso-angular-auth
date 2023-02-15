@@ -131,7 +131,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://fake-trello-api.herokuapp.com/api/v1/auth/change-password",
+							"raw": "{{url}}/auth/change-password",
 							"protocol": "https",
 							"host": [
 								"fake-trello-api",
