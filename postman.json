@@ -24,7 +24,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}auth/login",
+							"raw": "{{url}}/auth/login",
 							"host": [
 								"{{url}}auth"
 							],
