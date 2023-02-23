@@ -16,23 +16,42 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
     ],
     "paths": {
-      "@models/*": ["./src/app/models/*"],
-      "@shared/*": ["src/app/modules/shared/*"],
-      "@auth/*": ["src/app/modules/auth/*"],
-      "@boards/*": ["src/app/modules/boards/*"],
-      "@environments/*": ["./src/environments/*"],
-      "@guards/*": ["./src/app/guards/*"],
-      "@interceptors/*": ["./src/app/interceptors/*"],
-      "@services/*": ["./src/app/services/*"],
-      "@utils/*": ["./src/app/utils/*"],
-    }
+      "@models/*": [
+        "./src/app/models/*"
+      ],
+      "@shared/*": [
+        "src/app/modules/shared/*"
+      ],
+      "@auth/*": [
+        "src/app/modules/auth/*"
+      ],
+      "@boards/*": [
+        "src/app/modules/boards/*"
+      ],
+      "@environments/*": [
+        "./src/environments/*"
+      ],
+      "@guards/*": [
+        "./src/app/guards/*"
+      ],
+      "@interceptors/*": [
+        "./src/app/interceptors/*"
+      ],
+      "@services/*": [
+        "./src/app/services/*"
+      ],
+      "@utils/*": [
+        "./src/app/utils/*"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
