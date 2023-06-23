@@ -1,71 +1,83 @@
 <h1 class="text-center font-bold py-2 text-gray-700">Log in to Trello</h1>
 <form [formGroup]="form" novalidate class="space-y-4" (ngSubmit)="doLogin()">
-  <div>
-    <div class="relative">
-      <input
-        #nameInput
-        formControlName="email"
-        placeholder="Enter email"
-        type="email"
-        class="w-full rounded bg-gray-100 border-gray-300 border-2"
-      />
-      <button type="button" class="p-2 absolute right-2" (click)="nameInput.focus()">
-        <fa-icon [icon]="faPen"></fa-icon>
-      </button>
+    <div>
+        <div class="relative">
+            <input
+                #nameInput
+                formControlName="email"
+                placeholder="Enter email"
+                type="email"
+                class="w-full rounded bg-gray-100 border-gray-300 border-2"
+            />
+            <button
+                type="button"
+                class="p-2 absolute right-2"
+                (click)="nameInput.focus()"
+            >
+                <fa-icon [icon]="faPen"></fa-icon>
+            </button>
+        </div>
+        <div *ngIf="form.controls.email.touched && form.controls.email.invalid">
+            <p
+                *ngIf="form.controls.email.hasError('required')"
+                class="font-medium text-red-500 text-xs mt-1 ml-1"
+            >
+                This field is mandatory
+            </p>
+            <p
+                *ngIf="form.controls.email.hasError('email')"
+                class="font-medium text-red-500 text-xs mt-1 ml-1"
+            >
+                This field should be a email
+            </p>
+        </div>
     </div>
-    <div *ngIf="form.controls.email.touched && form.controls.email.invalid">
-      <p
-        *ngIf="form.controls.email.hasError('required')"
-        class="font-medium text-red-500 text-xs mt-1 ml-1"
-      >
-        This field is mandatory
-      </p>
-      <p
-        *ngIf="form.controls.email.hasError('email')"
-        class="font-medium text-red-500 text-xs mt-1 ml-1"
-      >
-        This field should be a email
-      </p>
+    <div>
+        <div class="relative">
+            <input
+                formControlName="password"
+                placeholder="Enter password"
+                [type]="showPassword ? 'text' : 'password'"
+                class="w-full rounded bg-gray-100 border-gray-300 border-2"
+            />
+            <button
+                type="button"
+                class="p-2 absolute right-2"
+                (click)="showPassword = !showPassword"
+            >
+                <fa-icon [icon]="showPassword ? faEye : faEyeSlash"></fa-icon>
+            </button>
+        </div>
+        <div
+            *ngIf="
+                form.controls.password.touched && form.controls.password.invalid
+            "
+        >
+            <p
+                *ngIf="form.controls.password.hasError('required')"
+                class="font-medium text-red-500 text-xs mt-1 ml-1"
+            >
+                This field is mandatory
+            </p>
+            <p
+                *ngIf="form.controls.password.hasError('minlength')"
+                class="font-medium text-red-500 text-xs mt-1 ml-1"
+            >
+                This field should be greater than 6 characters
+            </p>
+        </div>
     </div>
-  </div>
-  <div>
-    <div class="relative">
-      <input
-        formControlName="password"
-        placeholder="Enter password"
-        [type]="showPassword ? 'text' : 'password'"
-        class="w-full rounded bg-gray-100 border-gray-300 border-2"
-      />
-      <button type="button" class="p-2 absolute right-2" (click)="showPassword = !showPassword">
-        <fa-icon [icon]="showPassword ? faEye : faEyeSlash"></fa-icon>
-      </button>
-    </div>
-    <div *ngIf="form.controls.password.touched && form.controls.password.invalid">
-      <p
-        *ngIf="form.controls.password.hasError('required')"
-        class="font-medium text-red-500 text-xs mt-1 ml-1"
-      >
-        This field is mandatory
-      </p>
-      <p
-        *ngIf="form.controls.password.hasError('minlength')"
-        class="font-medium text-red-500 text-xs mt-1 ml-1"
-      >
-        This field should be greater than 6 characters
-      </p>
-    </div>
-  </div>
     <div *ngIf="status === 'failed'">
         <p class="font-medium text-red-500 text-xs mt-1 ml-1">
             Credentials are invalid
         </p>
     </div>
-  <div>
-    <app-btn
-      typeBtn="submit"
-      color="success"
-      [loading]="status === 'loading'"
-      >Login</app-btn
-    >
-  </div>
+    <div>
+        <app-btn
+            typeBtn="submit"
+            color="success"
+            [loading]="status === 'loading'"
+            >Login</app-btn
+        >
+    </div>
 </form>
