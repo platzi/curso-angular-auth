@@ -7,12 +7,16 @@ import { UserExists } from '@models/response/auth/user-exists.model';
 import { switchMap, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { UserTokenLogin } from '@models/response/auth/user-login.model';
+import { UserProfile } from '@models/response/auth/user-profile.model';
+import { BehaviorSubject } from 'rxjs';
+import { checkToken } from '@interceptors/token.interceptor';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   apiUrl = environment.API_URL;
+  userProfile$ = new BehaviorSubject<UserProfile | null>(null);
 
   constructor(private http: HttpClient, private tokenService:TokenService) {}
 
@@ -45,5 +49,15 @@ export class AuthService {
 
   logout(){
     this.tokenService.removeToken();
+  }
+
+  profile(){
+    return this.http.post<UserProfile>(`${this.apiUrl}/api/auth/profile`,{},{ context:checkToken() }).pipe(
+      tap(
+        userProfile => {
+          this.userProfile$.next(userProfile);
+        }
+      )
+    );
   }
 }
