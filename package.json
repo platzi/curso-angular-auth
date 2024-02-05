@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "~6.3.0",
     "@fortawesome/free-brands-svg-icons": "~6.3.0",
     "@fortawesome/free-solid-svg-icons": "~6.3.0",
+    "jwt-decode": "^4.0.0",
     "rxjs": "~7.5.0",
     "tslib": "~2.3.0",
     "typescript-cookie": "^1.0.6",

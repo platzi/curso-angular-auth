@@ -9,7 +9,7 @@ import { TokenService } from './token.service';
 import { UserTokenLogin } from '@models/response/auth/user-login.model';
 import { UserProfile } from '@models/response/auth/user-profile.model';
 import { BehaviorSubject } from 'rxjs';
-import { checkToken } from '@interceptors/token.interceptor';
+import { checkToken } from '../../app/interceptors/token.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +25,7 @@ export class AuthService {
     .pipe(
       tap( response => {
             this.tokenService.saveToken(response.token);
+            this.tokenService.saveRefreshToken(response.refresh_token);
       }
       ));
   }
@@ -59,5 +60,15 @@ export class AuthService {
         }
       )
     );
+  }
+
+  refreshToken(refreshToken:string){
+    return this.http.post<UserTokenLogin>(`${this.apiUrl}/api/auth/refresh`, { refreshToken })
+    .pipe(
+      tap( response => {
+            this.tokenService.saveToken(response.token);
+            this.tokenService.saveRefreshToken(response.refresh_token);
+      }
+      ));
   }
 }

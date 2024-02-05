@@ -2,7 +2,8 @@
 
 Manejo de la sesion mediante cookies para esto se debe instalar
 
-```bash
-npm i typescript-cookie
-```
+1. typescript-cookie
 
+Decodificar JWT
+
+2. jwt-decode
