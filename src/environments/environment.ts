@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   API_URL: 'https://xpoch.rest',
+  GOOGLE_CLIENT_ID: '973795246114-60lt67fd972ds49eommessmq31954gqb.apps.googleusercontent.com',
+
 };
 
 /*

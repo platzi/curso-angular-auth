@@ -30,6 +30,16 @@ export class AuthService {
       ));
   }
 
+  loginGoogle(token: string) {
+    return this.http.post<UserTokenLogin>(`${this.apiUrl}/api/auth/login/google`, { token })
+    .pipe(
+      tap( response => {
+            this.tokenService.saveToken(response.token);
+            this.tokenService.saveRefreshToken(response.refresh_token);
+      }
+      ));
+  }
+
   register(name: string, email: string, password: string) {
     return this.http.post(`${this.apiUrl}/api/auth/register`, {
       name,
@@ -50,6 +60,7 @@ export class AuthService {
 
   logout(){
     this.tokenService.removeToken();
+    this.tokenService.removeRefreshToken();
   }
 
   profile(){
